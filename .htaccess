@@ -1,0 +1,10 @@
+RewriteEngine on
+# / kapag hindi subdirectory
+RewriteBase /arrest/
+RewriteRule ^api/v1/([a-zA-Z0-9].*)\.(json|xml)?$ /arrest/index.php?url=$1&format=$2 [L,QSA]
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html
+    # Add any mime-type you think is appropriate here
+    AddOutputFilterByType DEFLATE application/json
+</IfModule>
